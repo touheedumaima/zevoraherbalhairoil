@@ -1,0 +1,661 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.heading {
+  text-align: center;   /* center mein lane ke liye */
+  font-size: 50px;      /* size bada karne ke liye */
+  font-weight: bold;    /* bold text */
+}
+/* BODY FIX (WHITE BACKGROUND) */
+body {
+  margin: 0;
+  background: #ffffff; /* ✅ FIXED */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Top Bar */
+.top-bar {
+  background: #2fb21f;
+  color: white;
+  overflow: hidden;
+  height: 40px;          /* 👈 ADD THIS */
+  display: flex;         /* 👈 ADD THIS */
+  align-items: center;   /* 👈 ADD THIS */
+}
+
+.scroll-wrapper {
+  display: flex;
+  width: max-content;
+  animation: topScroll 20s linear infinite;
+}
+
+@keyframes topScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.scroll-text {
+  white-space: nowrap;
+  padding: 10px 40px; /* 👈 0 se 40px karo */
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.navbar {
+  top: 40px; /* 👈 ADD THIS */
+}
+
+/* Navbar */
+.logo img {
+  width: 40px;
+  height: auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: white;
+  align-items: center;
+   position: fixed;   /* 👈 ye add karo */
+  top: 0;            /* 👈 ye add karo */
+  left: 0;           /* 👈 ye add karo */
+  width: 100%;       /* 👈 full width ke liye */
+  z-index: 1000;     /* 👈 slider ke upar rahe */
+}
+
+.navbar nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+/* Slider */
+.slider {
+  margin-top: 80px;
+    height: calc(100vh - 80px);       /* 👈 IMPORTANT */
+  position: relative;   /* 👈 IMPORTANT */
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 0.8s;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Product Section (GRID) */
+.product-section {
+  padding: 40px;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.product-section h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.card {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+/* Product Detail (TOP WHITE SECTION) */
+.product-detail {
+  display: flex;
+  gap: 50px;
+  padding: 50px;
+  align-items: center;
+  background: #ffffff; /* ✅ WHITE */
+}
+
+.product-image {
+  width: 50%;
+}
+
+.product-image img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.product-info {
+  width: 50%;
+}
+
+.product-info h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 24px;
+  color: green;
+  margin-bottom: 15px;
+}
+
+.desc {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Quantity */
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.qty button {
+  padding: 5px 12px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Buttons */
+.cart-btn {
+  background: #2fb21f;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.learn-btn {
+  background: #2fb21f;
+  color: #ffffff;
+  padding: 12px 25px;
+  border: 2px solid #2fb21f;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* HAIR SECTION (GREEN ONLY HERE) */
+/* HAIR SECTION FIX */
+.hair-section {
+  width: 100%;
+  background: #cfdcc6;
+  padding: 80px 0;
+}
+
+/* INNER CONTAINER (CENTER CONTROL) */
+.hair-section .cards {
+  max-width: 1200px;
+  margin: auto;               /* ✅ center */
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* TITLE FIX */
+.title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+/* CARD FIX */
+
+.card {
+  width: 320px;
+  text-align: center;
+  height: auto;      /* ✅ IMPORTANT */
+  overflow: visible; /* ✅ IMPORTANT */
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start; /* ✅ text neeche aayega */
+}
+
+/* IMAGE BOX FIX */
+.img-box {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+}
+
+/* TEXT KO UPAR LANA */
+.card h3 {
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+.card p {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.hair-card p {
+  font-size: 14px;
+  color: #333;
+  margin-top: 5px;
+}
+
+
+
+.img-box {
+  position: relative;
+  width: 300px;
+  height: 350px;
+  overflow: hidden;
+}
+
+
+ .img-box img {
+  opacity: 1 !important;
+}
+
+.after {
+  width: 50%;
+}
+
+.img-box::after {
+  content: "BEFORE";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: white;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.img-box::before {
+  content: "AFTER";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: white;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid,
+  .hair-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-detail {
+    flex-direction: column;
+  }
+
+  .product-image,
+  .product-info {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .grid,
+  .hair-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ONLY slider styles (safe) */
+.custom-slider {
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  padding: 20px 0;
+}
+
+.custom-track {
+  display: flex;
+  width: max-content;
+  animation: customScroll 25s linear infinite;
+}
+
+.custom-track img {
+  width: 250px;   /* adjust if needed */
+  height: 250px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 8px;
+}
+
+/* animation */
+@keyframes customScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.footer {
+  background: #000;
+  color: #ccc;
+  padding-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 60px;
+}
+
+.footer-col {
+  width: 18%;
+}
+
+.footer-col h4 {
+  color: #f3fb05;
+  margin-bottom: 15px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.footer-col ul li:hover {
+  color: #2fb21f;
+}
+
+.about p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.logo img {
+  width: 50px;
+}
+
+.logo h3 {
+  color: #fff;
+  margin-top: 10px;
+}
+
+.contact p {
+  font-size: 14px;
+}
+
+.social-icons i {
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: rgb(226, 210, 36);
+  transition: 0.3s;
+}
+
+.social-icons i:hover {
+  color: #2fb21f;
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  background: #111;
+  color: #2fb21f;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+#scrollTopBtn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  display: none;
+  border-radius: 5px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    color: #333;
+}
+
+.blog {
+    padding: 60px 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #2e7d32;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #2fb21f;
+}
+
+p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.intro {
+    font-size: 18px;
+}
+
+ul, ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+.note {
+    font-style: italic;
+    color: #777;
+}
+
+.cta {
+    margin-top: 30px;
+    text-align: center;
+    padding: 20px;
+    background: #e8f5e9;
+    border-radius: 10px;
+}
+
+.cta p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.cta button {
+    background: #2fb21f;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.cta button:hover {
+    background: #249b18;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #e8f5e9, #ffffff);
+}
+
+/* MAIN SECTION */
+.contact-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+/* CONTAINER */
+.contact-container {
+    display: flex;
+    max-width: 1100px;
+    width: 100%;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* LEFT SIDE */
+.contact-info {
+    flex: 1;
+    background: #5eb352;
+    color: #fff;
+    padding: 40px;
+}
+
+.contact-info h1 {
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.info-box {
+    margin-top: 20px;
+}
+
+/* RIGHT SIDE */
+.contact-form {
+    flex: 1;
+    padding: 40px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #2fb21f;
+}
+
+/* BUTTON */
+.contact-form button {
+    padding: 12px;
+    background: #2fb21f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #249b18;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+}
